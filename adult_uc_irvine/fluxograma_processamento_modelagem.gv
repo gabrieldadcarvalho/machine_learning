@@ -1,0 +1,47 @@
+// Fluxograma de Processamento de Dados e Modelagem
+digraph {
+	A [label="Importação do banco de dados"]
+	B [label="Banco de dados normal (X)"]
+	C [label="Análise exploratória das variáveis explicativas e resposta"]
+	D [label="Se a variável for categórica:"]
+	E [label="Verificar se ⊂ a classe \"?\""]
+	F [label="Remover as observações ⊂ a classe \"?\""]
+	G [label="Não faz nada"]
+	H [label="Transformação para melhorar a distribuição dos dados"]
+	I [label="Banco de dados transformado (Xt)"]
+	J [label="Criação de uma amostra de 1% para usar nos modelos"]
+	K [label="Separação dos dados em treinamento, validação e teste"]
+	L [label="Criação dos modelos"]
+	M [label="Ajuste do modelo de Árvore de Decisão (AD)"]
+	N [label="Ajuste do modelo de Suport Vector Machine (SVM)"]
+	O [label="Ajuste do modelo de Rede Neural Artificial (RNA)"]
+	P [label="Ajuste do modelo de Random Forest (RF)"]
+	Q [label="Stacking Generalization (SG)"]
+	R [label="Explicação das métricas dos modelos"]
+	S [label="Conclusão"]
+	A -> B
+	A -> C
+	C -> D
+	D -> E
+	E -> F [label=Sim]
+	E -> G [label="Não"]
+	D -> H [label="Se não for categórica"]
+	F -> I
+	G -> I
+	H -> I
+	I -> J
+	B -> J
+	J -> K
+	K -> L
+	L -> M
+	L -> N
+	L -> O
+	L -> P
+	L -> Q
+	M -> R
+	N -> R
+	O -> R
+	P -> R
+	Q -> R
+	R -> S
+}
